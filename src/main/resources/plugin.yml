@@ -1,0 +1,3 @@
+name: AutoRestart
+version: '${project.version}'
+main: me.lloyd26.autorestart.AutoRestart

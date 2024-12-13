@@ -1,0 +1,25 @@
+# Time announcement before a restart
+# Time units: "h" (hours), "m" (minutes), "s" (seconds)
+announce:
+  - "5m"
+  - "4m"
+  - "3m"
+  - "2m"
+  - "1m"
+  - "45s"
+  - "30s"
+  - "15s"
+  - "10s"
+  - "5s"
+  - "4s"
+  - "3s"
+  - "2s"
+  - "1s"
+
+# Specific times the server will restart
+# Possible formats:
+# - "h:mma" (12-hour)
+# - "H:mm" (24-hour)
+restart:
+  - "3:00AM"
+  - "22:00"
