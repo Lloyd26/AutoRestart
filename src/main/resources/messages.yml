@@ -1,7 +1,11 @@
 messages:
-  time-announce: "&eThe server will be rebooting in &6{TIME_REMAINING}&e."
+  time-announce: "<c0>The server will be rebooting in <c1>{TIME_REMAINING}</c1>.</c0>"
   restart-reason: "Server is rebooting..."
 
 plugin:
-  restart-loaded: "&eLoaded restart task for &6{RESTART_TIME}&e."
-  plugin-reloaded: "&6AutoRestart &ehas been reloaded."
+  restart-loaded: "<c0>Loaded restart task for <c1>{RESTART_TIME}</c1>.</c0>"
+  plugin-reloaded: "<c1>AutoRestart</c1> <c0>has been reloaded.</c0>"
+
+theme:
+  color-primary: "YELLOW"
+  color-accent: "GOLD"

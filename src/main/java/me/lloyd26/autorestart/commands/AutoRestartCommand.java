@@ -5,6 +5,7 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandHelp;
 import co.aikar.commands.annotation.*;
 import me.lloyd26.autorestart.AutoRestart;
+import me.lloyd26.autorestart.utils.MessageUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
@@ -27,9 +28,7 @@ public class AutoRestartCommand extends BaseCommand {
         plugin.getConfigManager().reloadConfigs();
         plugin.loadRestartTasks();
 
-        String reloadMessage = ChatColor.translateAlternateColorCodes('&',
-                plugin.getConfigManager().getConfig("messages.yml").getString("plugin.plugin-reloaded")
-        );
+        String reloadMessage = MessageUtil.colorize(plugin.getConfigManager().getConfig("messages.yml").getString("plugin.plugin-reloaded"));
 
         sender.sendMessage(reloadMessage);
     }

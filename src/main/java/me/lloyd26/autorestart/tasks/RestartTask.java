@@ -1,9 +1,9 @@
 package me.lloyd26.autorestart.tasks;
 
 import me.lloyd26.autorestart.AutoRestart;
+import me.lloyd26.autorestart.utils.MessageUtil;
 import me.lloyd26.autorestart.utils.TimeUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.time.LocalTime;
@@ -50,9 +50,10 @@ public class RestartTask extends BukkitRunnable {
             if (!announcedTimes.contains(announceTime) && Math.abs(delayMillis - announceMillis) <= 500) {
                 announcedTimes.add(announceTime);
 
-                String announceTimeMessage = ChatColor.translateAlternateColorCodes('&',
+                String announceTimeMessage = MessageUtil.colorize(
                         plugin.getConfigManager().getConfig("messages.yml").getString("messages.time-announce")
-                                .replace("{TIME_REMAINING}", TimeUtils.convertToTimeString(announceTime))
+                                .replace("{TIME_REMAINING}", TimeUtils.convertToTimeString(announceTime)
+                        )
                 );
 
                 Bukkit.getOnlinePlayers().forEach(p -> p.sendMessage(announceTimeMessage));
@@ -61,7 +62,7 @@ public class RestartTask extends BukkitRunnable {
         }
 
         if (delayMillis <= 500) {
-            String restartMessage = ChatColor.translateAlternateColorCodes('&', plugin.getConfigManager().getConfig("messages.yml").getString("messages.restart-reason"));
+            String restartMessage = MessageUtil.colorize(plugin.getConfigManager().getConfig("messages.yml").getString("messages.restart-reason"));
 
             Bukkit.getOnlinePlayers().forEach(p -> p.kickPlayer(restartMessage));
             plugin.getLogger().log(Level.INFO, restartMessage);
